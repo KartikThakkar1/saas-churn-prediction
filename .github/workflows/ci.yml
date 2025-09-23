@@ -1,0 +1,27 @@
+name: ci               # display name for this workflow in GitHub
+
+on:                    # when to run it
+  push:                # on every push
+  pull_request:        # and on every PR
+
+jobs:
+  test:                # defining a job called "test"
+    runs-on: ubuntu-latest        # run on a Linux VM
+    env:
+      FAST_TRAIN: "1"             # make training quicker in CI
+    steps:
+      - uses: actions/checkout@v4 # 1) pull repo code into the VM
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"  # 2) install Python 3.11
+      - name: Install deps        # 3) install libraries
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+      # - name: Generate synthetic data
+      #   run: python generate_dataset.py
+      - name: Train model (produce artifacts)  # 4) run training to produce model/
+        run: python -m src.train
+      - name: Run tests                 # 5) run tests
+        run: pytest -q

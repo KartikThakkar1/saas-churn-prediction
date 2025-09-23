@@ -15,9 +15,6 @@ pip-wheel-metadata/
 # Notebooks
 notebooks/
 
-# Tests & CI internals (optional to exclude from runtime image)
-tests/
-.github/
 
 # OS
 .DS_Store
