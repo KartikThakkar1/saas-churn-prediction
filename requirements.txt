@@ -8,3 +8,4 @@ uvicorn
 pydantic>=2
 starlette
 pytest
+httpx

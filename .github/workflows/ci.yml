@@ -25,3 +25,7 @@ jobs:
         run: python -m src.train
       - name: Run tests                 # 5) run tests
         run: pytest -q
+
+      - name: Set PYTHONPATH          # 6) set PYTHONPATH to workspace
+        run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
+
