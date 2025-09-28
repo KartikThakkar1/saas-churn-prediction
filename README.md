@@ -76,7 +76,7 @@ flowchart LR
 
 - Pytest: automated tests with assertions.
 
-- GitHub Actions: cloud runner that executes your pipeline/tests per push.
+- GitHub Actions: cloud runner that executes the pipeline/tests per push.
 
 - Docker: packaging app + environment into a portable image.
 
